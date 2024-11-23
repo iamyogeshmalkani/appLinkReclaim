@@ -6,25 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-itunes-app"
         content="app-id=6504527283, app-clip-bundle-id=app.getreclaim.reclaim.appClip, app-clip-url=https://app-link-reclaim.vercel.app, app-clip-display=card">
-    <!-- <meta name="apple-itunes-app"
-        content="app-id=6504527283 app-clip-bundle-id=app.getreclaim.reclaim.appClip, app-clip-url=https://app-link-reclaim.vercel.app, app-clip-display=card" /> -->
-    <!-- <meta name="apple-app-site-association"
-        content="applinks:https://app-link-reclaim.vercel.app/" /> -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Open App Clip" />
     <meta property="og:description" content="Click here to open the App Clip and discover features." />
     <title>App Invite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Extract the referrer's name from the URL
-            const path = window.location.pathname;
-            const referrerName = path.split("/").pop() || "Your Friend";
+                            // Function to copy text to the clipboard
+                            function copyToClipboard() {
+                                const textToCopy = "YogeshMalkaniMeraNaam"; // Get the text to be copied
 
-            // Update the referrer name in the invitation text
-            const referrerElement = document.getElementById("referrer-name");
-            referrerElement.textContent = decodeURIComponent(referrerName);
-        });
+                                // Create a temporary input element
+                                const tempInput = document.createElement("input");
+                                document.body.appendChild(tempInput);
+
+                                // Set the value of the input to the text to be copied
+                                tempInput.value = textToCopy;
+                                tempInput.select();
+                                tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+                                // Execute the copy command
+                                document.execCommand("copy");
+
+                                // Remove the temporary input element
+                                document.body.removeChild(tempInput);
+
+                                // Optionally, show a confirmation message
+                            }
+
+                            // Automatically copy the link when the page loads
+                            window.onload = function () {
+                                copyToClipboard();
+                            };
     </script>
 </head>
 
@@ -42,6 +55,10 @@
             Discover an amazing experience. Download the app today and start your journey!
         </p>
 
+        <!-- Invitation Link to be Copied -->
+        
+        
+        <!-- Copy Button (optional, you can remove it since the link is copied automatically) -->
         <div class="mt-6 flex flex-col space-y-4">
             <a href="https://apps.apple.com" target="_blank"
                 class="block bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition">
