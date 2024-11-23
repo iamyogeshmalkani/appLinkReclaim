@@ -5,17 +5,30 @@
             {
                 "appID": "Q9QGAJKQUB.app.getreclaim.reclaim",
                 "paths": [
-                    "/"
+                    "/*"
                 ]
             }
         ]
     },
     "appclips": {
         "apps": [
-            "Q9QGAJKQUB.app.getreclaim.reclaim.appClip"
+            "Q9QGAJKQUB.app.getreclaim.reclaim.Clip"
         ],
         "paths": [
-            "/"
+            "/*"
+        ]
+    },
+    "activitycontinuation": {
+        "apps": [
+            "Q9QGAJKQUB.app.getreclaim.reclaim"
+        ],
+        "details": [
+            {
+                "appID": "Q9QGAJKQUB.app.getreclaim.reclaim",
+                "paths": [
+                    "/*"
+                ]
+            }
         ]
     }
 }
