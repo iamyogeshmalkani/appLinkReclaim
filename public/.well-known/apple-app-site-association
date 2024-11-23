@@ -1,0 +1,21 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "Q9QGAJKQUB.app.getreclaim.reclaim",
+                "paths": [
+                    "/invite-friend/*"
+                ]
+            }
+        ]
+    },
+    "appclips": {
+        "apps": [
+            "Q9QGAJKQUB.app.getreclaim.reclaim.appClip"
+        ],
+        "paths": [
+            "/invite-friend/*"
+        ]
+    }
+}

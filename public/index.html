@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="apple-itunes-app"
+        content="app-id=6504527283 app-clip-bundle-id=app.getreclaim.reclaim.appClip, app-clip-url=https://27c5-2401-4900-1c23-40d1-2510-1e71-6ed3-471c.ngrok-free.app/invite-friend/* app-clip-display=card" />
+    <meta name="apple-app-site-association"
+        content="applinks:27c5-2401-4900-1c23-40d1-2510-1e71-6ed3-471c.ngrok-free.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Open App Clip" />
+    <meta property="og:description" content="Click here to open the App Clip and discover features." />
+    <title>App Invite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Extract the referrer's name from the URL
+            const path = window.location.pathname;
+            const referrerName = path.split("/").pop() || "Your Friend";
+
+            // Update the referrer name in the invitation text
+            const referrerElement = document.getElementById("referrer-name");
+            referrerElement.textContent = decodeURIComponent(referrerName);
+        });
+    </script>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-96">
+        <h1 class="text-2xl font-bold text-gray-800 text-center">You're Invited!</h1>
+        <p class="mt-4 text-gray-600 text-center">
+            <span id="referrer-name" class="font-semibold text-gray-800">Your Friend</span> has invited you to join
+            <span class="text-blue-600 font-semibold">[App Name]</span>!
+        </p>
+
+        <img src="https://via.placeholder.com/150" alt="App Image" class="mx-auto mt-6 rounded-lg shadow-sm">
+
+        <p class="mt-6 text-gray-700 text-center">
+            Discover an amazing experience. Download the app today and start your journey!
+        </p>
+
+        <div class="mt-6 flex flex-col space-y-4">
+            <a href="https://apps.apple.com" target="_blank"
+                class="block bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+                Download on the App Store
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
