@@ -5,7 +5,7 @@
             {
                 "appID": "Q9QGAJKQUB.app.getreclaim.reclaim",
                 "paths": [
-                    "/invite-friend/*"
+                    "/*"
                 ]
             }
         ]
@@ -15,7 +15,7 @@
             "Q9QGAJKQUB.app.getreclaim.reclaim.appClip"
         ],
         "paths": [
-            "/invite-friend/*"
+            "/*"
         ]
     }
 }
