@@ -12,32 +12,33 @@
     <title>App Invite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-                            // Function to copy text to the clipboard
-                            function copyToClipboard() {
-                                const textToCopy = "YogeshMalkaniMeraNaam"; // Get the text to be copied
+                    // Function to copy text to the clipboard
+                    function copyToClipboard() {
+                    const textToCopy = document.getElementById("invite-link").textContent; // Get the text to be copied
 
-                                // Create a temporary input element
-                                const tempInput = document.createElement("input");
-                                document.body.appendChild(tempInput);
+                    // Create a temporary input element
+                    const tempInput = document.createElement("input");
+                    document.body.appendChild(tempInput);
 
-                                // Set the value of the input to the text to be copied
-                                tempInput.value = textToCopy;
-                                tempInput.select();
-                                tempInput.setSelectionRange(0, 99999); // For mobile devices
+                    // Set the value of the input to the text to be copied
+                    tempInput.value = textToCopy;
+                    tempInput.select();
+                    tempInput.setSelectionRange(0, 99999); // For mobile devices
 
-                                // Execute the copy command
-                                document.execCommand("copy");
+                    // Execute the copy command
+                    document.execCommand("copy");
 
-                                // Remove the temporary input element
-                                document.body.removeChild(tempInput);
+                    // Remove the temporary input element
+                    document.body.removeChild(tempInput);
 
-                                // Optionally, show a confirmation message
-                            }
+                    // Optionally, show a confirmation message
+                    alert("Invitation link copied to clipboard!");
+                }
 
-                            // Automatically copy the link when the page loads
-                            window.onload = function () {
-                                copyToClipboard();
-                            };
+                    // Automatically copy the link when the page loads
+                    window.onload = function () {
+                        copyToClipboard();
+                    };
     </script>
 </head>
 
@@ -56,7 +57,9 @@
         </p>
 
         <!-- Invitation Link to be Copied -->
-        
+        <p class="mt-4 text-gray-800 text-center" id="invite-link">
+            https://your-app-invite-link.com
+        </p>
         
         <!-- Copy Button (optional, you can remove it since the link is copied automatically) -->
         <div class="mt-6 flex flex-col space-y-4">
