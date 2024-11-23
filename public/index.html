@@ -13,23 +13,55 @@
     <title>App Invite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-                // Function to copy text to the clipboard
-                function copyToClipboard() {
-                var copyText = "YogeshHeroHira"; // This can be dynamic based on your requirements
-                navigator.clipboard.writeText(copyText).then(function () {
-                    // Show a success message when copied
-                    document.getElementById('copy-feedback').style.display = 'block';
-                    setTimeout(function () {
-                        document.getElementById('copy-feedback').style.display = 'none';
-                    }, 2000);
-                }).catch(function (error) {
-                    console.error('Clipboard copy failed', error);
-                });
-            }
+                            function copyToClipboard(string) {
+                                let textarea;
+                                let result;
+
+                                try {
+                                    textarea = document.createElement('textarea');
+                                    textarea.setAttribute('readonly', true);
+                                    textarea.setAttribute('contenteditable', true);
+                                    textarea.style.position = 'fixed'; // prevent scroll from jumping to the bottom when focus is set.
+                                    textarea.value = string;
+
+                                    document.body.appendChild(textarea);
+
+                                    textarea.focus();
+                                    textarea.select();
+
+                                    const range = document.createRange();
+                                    range.selectNodeContents(textarea);
+
+                                    const sel = window.getSelection();
+                                    sel.removeAllRanges();
+                                    sel.addRange(range);
+
+                                    textarea.setSelectionRange(0, textarea.value.length);
+                                    result = document.execCommand('copy');
+                                } catch (err) {
+                                    console.error(err);
+                                    result = null;
+                                } finally {
+                                    document.body.removeChild(textarea);
+                                }
+
+                                // manual copy fallback using prompt
+                                if (!result) {
+                                    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+                                    const copyHotkey = isMac ? '⌘C' : 'CTRL+C';
+                                    result = prompt(`Press ${copyHotkey}`, string); // eslint-disable-line no-alert
+                                    if (!result) {
+                                        return false;
+                                    }
+                                }
+                                return true;
+                            }
+
+                                            // Example usage:
 
                 // Automatically copy the link when the page loads
                 window.onload = function () {
-                    copyToClipboard();
+                    copyToClipboard("Coding Mchine")
                 };
     </script>
 </head>
@@ -49,8 +81,6 @@
             Discover an amazing experience. Download the app today and start your journey!
         </p>
         
-        <!-- Copy Button Feedback -->
-        <div id="copy-feedback" class="mt-2 text-green-600 text-center hidden">Link copied to clipboard!</div>
 
         <!-- Download Button -->
         <div class="mt-6 flex flex-col space-y-4">
