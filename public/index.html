@@ -7,29 +7,30 @@
     <meta name="apple-itunes-app"
         content="app-id=6504527283, app-clip-bundle-id=app.getreclaim.reclaim.appClip, app-clip-url=https://app-link-reclaim.vercel.app, app-clip-display=card">
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Open App Clip" />
-    <meta property="og:description" content="Click here to open the App Clip and discover features." />
+    <meta property="og:title" content="Join [App Name] Today!" />
+    <meta property="og:description"
+        content="Click here to open the App Clip and discover amazing features of [App Name]." />
     <title>App Invite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-                    // Function to copy text to the clipboard
-                    function copyToClipboard() {
-                        var copyText = "YogeshHeroHira";
+                // Function to copy text to the clipboard
+                function copyToClipboard() {
+                var copyText = "YogeshHeroHira"; // This can be dynamic based on your requirements
+                navigator.clipboard.writeText(copyText).then(function () {
+                    // Show a success message when copied
+                    document.getElementById('copy-feedback').style.display = 'block';
+                    setTimeout(function () {
+                        document.getElementById('copy-feedback').style.display = 'none';
+                    }, 2000);
+                }).catch(function (error) {
+                    console.error('Clipboard copy failed', error);
+                });
+            }
 
-
-
-                        navigator.clipboard.writeText(copyText);
-
-                        // Alert the copied text
-                        alert("Copied the text: " + copyText);
-
-                        // Optionally, show a confirmation message
-                }
-
-                    // Automatically copy the link when the page loads
-                    window.onload = function () {
-                        copyToClipboard();
-                    };
+                // Automatically copy the link when the page loads
+                window.onload = function () {
+                    copyToClipboard();
+                };
     </script>
 </head>
 
@@ -41,12 +42,17 @@
             <span class="text-blue-600 font-semibold">[App Name]</span>!
         </p>
 
-        <img src="https://via.placeholder.com/150" alt="App Image" class="mx-auto mt-6 rounded-lg shadow-sm">
+        <img src="https://via.placeholder.com/150" alt="App Image showing key features"
+            class="mx-auto mt-6 rounded-lg shadow-sm">
 
         <p class="mt-6 text-gray-700 text-center">
             Discover an amazing experience. Download the app today and start your journey!
+        </p>
         
-        <!-- Copy Button (optional, you can remove it since the link is copied automatically) -->
+        <!-- Copy Button Feedback -->
+        <div id="copy-feedback" class="mt-2 text-green-600 text-center hidden">Link copied to clipboard!</div>
+
+        <!-- Download Button -->
         <div class="mt-6 flex flex-col space-y-4">
             <a href="https://apps.apple.com" target="_blank"
                 class="block bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition">
