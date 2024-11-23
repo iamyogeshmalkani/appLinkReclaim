@@ -14,25 +14,19 @@
     <script>
                     // Function to copy text to the clipboard
                     function copyToClipboard() {
-                        const textToCopy = "Random text" // Get the text to be copied
+                        var copyText = "YogeshHeroHira";
 
-                    // Create a temporary input element
-                    const tempInput = document.createElement("input");
-                    document.body.appendChild(tempInput);
+                        // Select the text field
+                        copyText.select();
+                        copyText.setSelectionRange(0, 99999); // For mobile devices
 
-                    // Set the value of the input to the text to be copied
-                    tempInput.value = textToCopy;
-                    tempInput.select();
-                    tempInput.setSelectionRange(0, 99999); // For mobile devices
+                        // Copy the text inside the text field
+                        navigator.clipboard.writeText(copyText.value);
 
-                    // Execute the copy command
-                    document.execCommand("copy");
+                        // Alert the copied text
+                        alert("Copied the text: " + copyText.value);
 
-                    // Remove the temporary input element
-                    document.body.removeChild(tempInput);
-
-                    // Optionally, show a confirmation message
-                    alert("Invitation link copied to clipboard!");
+                        // Optionally, show a confirmation message
                 }
 
                     // Automatically copy the link when the page loads
