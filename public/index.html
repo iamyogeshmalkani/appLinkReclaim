@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-itunes-app"
-        content="app-clip-bundle-id=app.getreclaim.reclaim.Clip, app-id=6504527283">
+    <meta name="apple-itunes-app" content="app-clip-bundle-id=app.getreclaim.reclaim.Clip, app-id=6504527283">
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Join [App Name] Today!" />
     <meta property="og:description"
@@ -13,25 +12,50 @@
     <title>App Invite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+
+
                 function getParamValue(paramName) {
                     const urlParams = new URLSearchParams(window.location.search);
                     return urlParams.get(paramName);
                 }
 
-                window.onload = function () {
+                                                            document.addEventListener("DOMContentLoaded", function () {
                     const invitedBy = getParamValue('invitedBy');
+                                                            const resultElement = document.getElementById('result');
                     if (invitedBy) {
-                        document.getElementById('result').innerText = `You are invited by: ${invitedBy}`;
+                        resultElement.innerText = `You are invited by: ${invitedBy}`;
+                        document.getElementById('input').value = invitedBy;
                     } else {
-                        document.getElementById('result').innerText = 'No invitation info found.';
+                        resultElement.innerText = 'No invitation info found.';
                     }
-                }
+
+                                                            const installButton = document.getElementById('install');
+                                                            installButton.addEventListener('click', function () {
+                                                                let copyText = document.querySelector("#input");
+                                                                navigator.clipboard.writeText(copyText.value).then(function () {
+                                                                }).catch(function (error) {
+                                                                });
+                                                                const appId = "6504527283";
+                                                                const appUrl = `https://apps.apple.com/us/app/id${appId}`;
+                                                                window.open(appUrl, '_blank');
+
+                                                            });
+
+
+                                                        });
+
+
     </script>
 </head>
 
-<body class=" min-h-screen flex flex-col items-center justify-center bg-black">
+<body class="min-h-screen flex flex-col items-center justify-center bg-black">
     <p class="text-white text-2xl">Tap on the above banner to start</p>
-    <p id="result" class="text-white text-xl"></p>
+    <p id="result" class="text-white text-xl mb-4"></p>
+    <input id="input" class="text-black p-2 rounded hidden" readonly />
+    
+    <button id="install" class="mt-4 p-2 bg-green-500 text-white rounded">
+        Install App
+    </button>
 </body>
 
 </html>
