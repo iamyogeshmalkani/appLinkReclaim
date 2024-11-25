@@ -13,10 +13,25 @@
     <title>App Invite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+                function getParamValue(paramName) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(paramName);
+                }
+
+                window.onload = function () {
+                    const invitedBy = getParamValue('invitedBy');
+                    if (invitedBy) {
+                        document.getElementById('result').innerText = `You are invited by: ${invitedBy}`;
+                    } else {
+                        document.getElementById('result').innerText = 'No invitation info found.';
+                    }
+                }
     </script>
 </head>
 
-<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+<body class=" min-h-screen flex flex-col items-center justify-center bg-black">
+    <p class="text-white text-2xl">Tap on the above banner to start</p>
+    <p id="result" class="text-white text-xl"></p>
 </body>
 
 </html>
