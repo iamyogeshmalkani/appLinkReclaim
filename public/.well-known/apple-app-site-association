@@ -3,7 +3,7 @@
         "apps": [],
         "details": [
             {
-                "appID": "Q9QGAJKQUB.app.getreclaim.reclaim",
+                "appID": "FCDYUDP5VQ.com.thejoltapp.app",
                 "paths": [
                     "/*"
                 ]
@@ -12,7 +12,7 @@
     },
     "appclips": {
         "apps": [
-            "Q9QGAJKQUB.app.getreclaim.reclaim.Clip"
+            "FCDYUDP5VQ.com.thejoltapp.app.Clip"
         ],
         "paths": [
             "/*"
@@ -20,11 +20,11 @@
     },
     "activitycontinuation": {
         "apps": [
-            "Q9QGAJKQUB.app.getreclaim.reclaim"
+            "FCDYUDP5VQ.com.thejoltapp.app"
         ],
         "details": [
             {
-                "appID": "Q9QGAJKQUB.app.getreclaim.reclaim",
+                "appID": "FCDYUDP5VQ.com.thejoltapp.app",
                 "paths": [
                     "/*"
                 ]
